@@ -9,6 +9,7 @@ class Item < ApplicationRecord
   validates :shipping_fee_status_id, numericality: { other_than: 1, message: "can't be blank" } 
   validates :prefecture_id, numericality: { other_than: 0, message: "can't be blank" } 
   validates :scheduled_delivery_id, numericality: { other_than: 1, message: "can't be blank" } 
+  validates :image, presence: true
 
   belongs_to :user
   belongs_to :status
@@ -16,4 +17,5 @@ class Item < ApplicationRecord
   belongs_to :shipping_fee_status
   belongs_to :prefecture
   belongs_to :scheduled_delivery
+  has_one_attached :image
 end
