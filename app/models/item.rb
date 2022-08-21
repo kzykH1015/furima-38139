@@ -12,4 +12,6 @@ class Item < ApplicationRecord
   validates :user, presence: true 
 
   belongs_to :status
+  belongs_to :category
+  belongs_to :shipping_fee_status
 end
