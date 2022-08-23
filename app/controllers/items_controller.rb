@@ -14,7 +14,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
-      render :new
+      render item_path(@item.id)
     end
   end
 
@@ -23,10 +23,19 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    item = Item.find(params[:id])
+    @item = Item.find(params[:id])
+    if @item.user.id != current_user.id
+      redirect_to root_path
+    end
   end
 
   def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      redirect_to item_path(@item.id)
+    else
+      render :edit
+    end
   end
 
   private
