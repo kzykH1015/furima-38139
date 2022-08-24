@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
+  before_action :item_finding,only: [:show, :edit, :update]
 
   def index
     @items = Item.all.order('created_at DESC')
@@ -19,7 +20,18 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
+  end
+
+  def edit
+    redirect_to root_path if @item.user.id != current_user.id
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to item_path(@item.id)
+    else
+      render :edit
+    end
   end
 
   private
@@ -29,6 +41,10 @@ class ItemsController < ApplicationController
       :name, :price, :info, :status_id, :category_id, :shipping_fee_status_id,
       :prefecture_id, :scheduled_delivery_id, :image
     ).merge(user_id: current_user.id)
+  end
+
+  def item_finding
+    @item = Item.find(params[:id])
   end
 
   def move_to_index
