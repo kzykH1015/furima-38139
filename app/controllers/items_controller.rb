@@ -14,21 +14,21 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
-      render item_path(@item.id)
+      render :new
     end
   end
 
   def show
-    @item = Item.find(params[:id])
+    item_finding
   end
 
   def edit
-    @item = Item.find(params[:id])
+    item_finding
     redirect_to root_path if @item.user.id != current_user.id
   end
 
   def update
-    @item = Item.find(params[:id])
+    item_finding
     if @item.update(item_params)
       redirect_to item_path(@item.id)
     else
@@ -43,6 +43,10 @@ class ItemsController < ApplicationController
       :name, :price, :info, :status_id, :category_id, :shipping_fee_status_id,
       :prefecture_id, :scheduled_delivery_id, :image
     ).merge(user_id: current_user.id)
+  end
+
+  def item_finding
+    @item = Item.find(params[:id])
   end
 
   def move_to_index
