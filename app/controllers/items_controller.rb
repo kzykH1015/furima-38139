@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :move_to_index, except: [:index, :show]
+  before_action :move_to_login, except: [:index, :show]
   before_action :item_finding, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -54,7 +54,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  def move_to_index
+  def move_to_login
     redirect_to new_user_session_path unless user_signed_in?
   end
 end
