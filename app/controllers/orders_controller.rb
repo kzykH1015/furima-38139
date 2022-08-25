@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   before_action :item_setting, only: [:index, :create]
   before_action :move_to_login
+  before_action :sold_out
 
   def index
     redirect_to root_path if @item.user == current_user
@@ -29,6 +30,10 @@ class OrdersController < ApplicationController
 
   def order_params
     params.require(:order_address).permit(:postal_code, :prefecture_id, :city, :address, :building, :phone_number).merge(user_id: current_user.id, item_id: params[:item_id])
+  end
+
+  def sold_out
+    redirect_to root_path if Order.exists?(item_id: params[:item_id])
   end
 
 end
