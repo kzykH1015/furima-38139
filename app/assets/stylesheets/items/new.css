@@ -228,19 +228,25 @@
   font-size: 13px;
 }
 
-.img {
-  height: 150px;
-  width: 150px;
+.preview-image {
+  height: 125px;
+  width: 125px;
   /* 縦横比を保ったまま、画像を縦横100pxのサイズに収めるプロパティです */
   object-fit: contain;
-  float: left;
 }
 
 .image-delete-button {
   text-align: center;
   border: solid 1px;
   cursor: pointer;
-  margin-bottom: 5px;
-  width: 150px;
+  margin:5px auto 5px;
+  border-radius: 5px;
+  width: 70px;
   height: 30px;
+  align-items: center;
+}
+
+.previews {
+  width: 100%;
+  display: flex;
 }
