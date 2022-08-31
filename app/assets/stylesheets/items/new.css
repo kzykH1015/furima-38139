@@ -227,3 +227,26 @@
 .inc {
   font-size: 13px;
 }
+
+.preview-image {
+  height: 125px;
+  width: 125px;
+  /* 縦横比を保ったまま、画像を縦横100pxのサイズに収めるプロパティです */
+  object-fit: contain;
+}
+
+.image-delete-button {
+  text-align: center;
+  border: solid 1px;
+  cursor: pointer;
+  margin:5px auto 5px;
+  border-radius: 5px;
+  width: 70px;
+  height: 30px;
+  align-items: center;
+}
+
+.previews {
+  width: 100%;
+  display: flex;
+}

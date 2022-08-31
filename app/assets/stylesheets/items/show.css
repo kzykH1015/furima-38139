@@ -205,3 +205,46 @@
   font-weight: bold;
   font-size: 23px;
 }
+
+.other-images {
+  display: flex;
+}
+
+.other-image {
+  margin-right: 10px;
+}
+
+.image-delete-button {
+  text-align: center;
+  border: solid 1px;
+  cursor: pointer;
+}
+
+.main-image {
+  height: 200px;
+  width: 200px;
+}
+
+.mini_image {
+  height: 200px;
+  width: 200px;
+  /* 縦横比を保ったまま、画像を縦横100pxのサイズに収めるプロパティです */
+  object-fit: contain;
+  margin-right: 10px;
+}
+
+.image-delete-button {
+  text-align: center;
+  border: solid 1px;
+  cursor: pointer;
+  margin:5px auto 5px;
+  border-radius: 5px;
+  width: 70px;
+  height: 30px;
+  align-items: center;
+}
+
+.previews {
+  width: 100%;
+  display: flex;
+}
