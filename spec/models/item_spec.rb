@@ -29,27 +29,27 @@ RSpec.describe Item, type: :model do
     it 'status_idが選択されていないと出品できない' do
       @item.status_id = '1'
       @item.valid?
-      expect(@item.errors.full_messages).to include("Status を選択してください")
+      expect(@item.errors.full_messages).to include('Status を選択してください')
     end
     it 'category_idが選択されていないと出品できない' do
       @item.category_id = '1'
       @item.valid?
-      expect(@item.errors.full_messages).to include("Category を選択してください")
+      expect(@item.errors.full_messages).to include('Category を選択してください')
     end
     it 'prefecture_idが選択されていないと出品できない' do
       @item.prefecture_id = '0'
       @item.valid?
-      expect(@item.errors.full_messages).to include("Prefecture を選択してください")
+      expect(@item.errors.full_messages).to include('Prefecture を選択してください')
     end
     it 'shipping_fee_status_idが選択されていないと出品できない' do
       @item.shipping_fee_status_id = '1'
       @item.valid?
-      expect(@item.errors.full_messages).to include("Shipping fee status を選択してください")
+      expect(@item.errors.full_messages).to include('Shipping fee status を選択してください')
     end
     it 'scheduled_delivery_idが選択されていないと出品できない' do
       @item.scheduled_delivery_id = '1'
       @item.valid?
-      expect(@item.errors.full_messages).to include("Scheduled delivery を選択してください")
+      expect(@item.errors.full_messages).to include('Scheduled delivery を選択してください')
     end
     it 'priceが空では出品できない' do
       @item.price = ''
