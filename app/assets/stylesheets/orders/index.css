@@ -125,6 +125,19 @@
   text-align: center;
 }
 
+.card-button {
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
+  height: 40px;
+  width: 100px;
+  padding: 0 0 0 16px;
+}
+
+.card-button:hover {
+  background-color: lightgray;
+}
+
 /* /カード情報の入力 */
 
 /* 配送先の入力 */
