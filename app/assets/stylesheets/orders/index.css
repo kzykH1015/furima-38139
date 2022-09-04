@@ -138,6 +138,11 @@
   background-color: lightgray;
 }
 
+.card-info {
+ font-size: 18px;
+ font-weight: 500;
+}
+
 /* /カード情報の入力 */
 
 /* 配送先の入力 */
