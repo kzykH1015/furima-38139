@@ -18,6 +18,8 @@ ja:
         shipping_fee_status_id: 配送料の負担
         prefecture_id: 地域
         scheduled_delivery_id: 発送までの日数
+      card:
+        card_token: カード情報
   activemodel:
     attributes:
       order_address:

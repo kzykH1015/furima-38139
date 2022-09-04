@@ -1,10 +1,14 @@
-<%= form_with  url: cards_path, id: 'charge-form', class: 'card-form',local: true do |f| %>
+<%= form_with  model: @card, url: cards_path, id: 'charge-form', class: 'card-form',local: true do |f| %>
   <%# カード情報の入力 %>
   <div class='credit-card-form'>
     <h1 class='info-input-haedline'>
       クレジットカード情報入力
     </h1>
+
+    
+
     <div class="form-group">
+    <%= render 'shared/error_messages', model: f.object %>
       <div class='form-text-wrap'>
         <label class="form-text">カード情報</label>
         <span class="indispensable">必須</span>

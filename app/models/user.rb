@@ -15,6 +15,6 @@ class User < ApplicationRecord
   validates :birthday, presence: true
   validates :password,
             format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: 'は6文字以上で半角の数字と英字を含めてください' }
-            
+
   has_one :card, dependent: :destroy
 end
