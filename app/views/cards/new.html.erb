@@ -1,4 +1,4 @@
-<%= form_with  url: cards_path, id: 'charge-form', class: 'card-form',local: true do |f| %>
+<%= form_with  url: cards_path, id: 'charge-form', class: 'card-form', local: true do |f| %>
   <%# カード情報の入力 %>
   <div class='credit-card-form'>
     <h1 class='info-input-haedline'>
@@ -38,5 +38,6 @@
     </div>
   </div>
   <%= f.submit "登録する" , class:"card-button" , id:"button" %>
+  <%= link_to "戻る", root_path, class:"back-button"%>
   <%# /カード情報の入力 %>
 <% end %>

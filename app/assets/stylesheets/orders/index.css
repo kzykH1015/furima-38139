@@ -138,6 +138,22 @@
   background-color: lightgray;
 }
 
+.back-button {
+  color: black;
+  border: 1px solid black;
+  border-radius: 4px;
+  text-align: center;
+  margin: 5px auto;
+  display: flex;
+  height: 40px;
+  width: 100px;
+  padding: 7px 0 0 33px;
+}
+
+.back-button:hover {
+  background-color: lightgray;
+}
+
 .card-info {
  font-size: 18px;
  font-weight: 500;
