@@ -113,7 +113,7 @@
 }
 
 .input-expiration-date {
-  width: 20%;
+  width: 11%;
   margin-top: 5px;
   height: 48px;
   border-radius: 4px;
@@ -123,6 +123,40 @@
   resize: none;
   line-height: 45px;
   text-align: center;
+}
+
+.card-button {
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
+  height: 40px;
+  width: 100px;
+  padding: 0 0 0 16px;
+}
+
+.card-button:hover {
+  background-color: lightgray;
+}
+
+.back-button {
+  color: black;
+  border: 1px solid black;
+  border-radius: 4px;
+  text-align: center;
+  margin: 5px auto;
+  display: flex;
+  height: 40px;
+  width: 100px;
+  padding: 7px 0 0 33px;
+}
+
+.back-button:hover {
+  background-color: lightgray;
+}
+
+.card-info {
+ font-size: 18px;
+ font-weight: 500;
 }
 
 /* /カード情報の入力 */
