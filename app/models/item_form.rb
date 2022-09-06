@@ -4,7 +4,7 @@ class ItemForm
   attr_accessor(
     :name, :price, :info, :status_id, :category_id, :shipping_fee_status_id,
     :prefecture_id, :scheduled_delivery_id, :images, :user_id, :id, :created_at,
-    :datetime, :updated_at, :datetime
+    :datetime, :updated_at, :datetime, :tag_name
   )
 
   with_options presence: true do
@@ -21,11 +21,14 @@ class ItemForm
   end
 
   def save
-    Item.create(
+    item = Item.create(
       name: name, price: price, info: info, status_id: status_id, category_id: category_id,
       shipping_fee_status_id: shipping_fee_status_id, prefecture_id: prefecture_id,
       scheduled_delivery_id: scheduled_delivery_id, images: images, user_id: user_id
     )
+    tag = Tag.where(tag_name: tag_name).first_or_initialize
+    tag.save
+    ItemTagRelation.create(item_id: item.id, tag_id: tag.id)
   end
 
   def update(params, item)

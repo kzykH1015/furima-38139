@@ -46,6 +46,11 @@
       <div class="weight-bold-text">商品の詳細</div>
       <div class="form">
         <div class="weight-bold-text">
+          タグ
+          <span class="indispensable"></span>
+        </div>
+        <%= f.text_area :tag_name, class:"items-tag", id:"item-tag", placeholder:"商品のタグ", maxlength:"20" %>
+        <div class="weight-bold-text">
           カテゴリー
           <span class="indispensable">必須</span>
         </div>
