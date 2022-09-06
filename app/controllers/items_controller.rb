@@ -7,12 +7,13 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = Item.new
+    @item_form = ItemForm.new
   end
 
   def create
-    @item = Item.new(item_params)
-    if @item.save
+    @item_form = ItemForm.new(item_form_params)
+    if @item_form.valid?
+      @item_form.save
       redirect_to root_path
     else
       render :new
@@ -24,10 +25,17 @@ class ItemsController < ApplicationController
 
   def edit
     redirect_to root_path if @item.user.id != current_user.id || Order.exists?(item_id: @item.id)
+    item_attributes = @item.attributes
+    @item_form = ItemForm.new(item_attributes)
+    @item_form.tag_name = @item.tags&.first&.tag_name
   end
 
   def update
-    if @item.update(item_params)
+    @item_form = ItemForm.new(item_form_params)
+
+    @item_form.images ||= @item.images.blobs
+    if @item_form.valid?
+      @item_form.update(item_form_params, @item)
       redirect_to item_path(@item.id)
     else
       render :edit
@@ -43,10 +51,10 @@ class ItemsController < ApplicationController
 
   private
 
-  def item_params
-    params.require(:item).permit(
+  def item_form_params
+    params.require(:item_form).permit(
       :name, :price, :info, :status_id, :category_id, :shipping_fee_status_id,
-      :prefecture_id, :scheduled_delivery_id, { images: [] }
+      :prefecture_id, :scheduled_delivery_id, :tag_name, { images: [] }
     ).merge(user_id: current_user.id)
   end
 
