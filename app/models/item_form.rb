@@ -5,7 +5,7 @@ class ItemForm
     :name, :price, :info, :status_id, :category_id, :shipping_fee_status_id,
     :prefecture_id, :scheduled_delivery_id, :images, :user_id, :id, :created_at,
     :datetime, :updated_at, :datetime
-  ) 
+  )
 
   with_options presence: true do
     validates :name
