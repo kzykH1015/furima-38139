@@ -29,6 +29,10 @@ app/assets/stylesheets/items/new.css %>
     <%# 商品名と商品説明 %>
     <div class="new-items">
       <div class="weight-bold-text">
+        タグ
+      </div>
+      <%= f.text_area :tag_name, class:"items-tag", id:"item-tag", placeholder:"商品のタグ", maxlength:"20" %>
+      <div class="weight-bold-text">
         商品名
         <span class="indispensable">必須</span>
       </div>

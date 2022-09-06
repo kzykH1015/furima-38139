@@ -27,6 +27,7 @@ class ItemsController < ApplicationController
     redirect_to root_path if @item.user.id != current_user.id || Order.exists?(item_id: @item.id)
     item_attributes = @item.attributes
     @item_form = ItemForm.new(item_attributes)
+    @item_form.tag_name = @item.tags&.first&.tag_name
   end
 
   def update
