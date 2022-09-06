@@ -128,12 +128,13 @@
     </div>
     
     <ul class='item-lists'>
-      <% if @items.exists? %>
         <% @items.each do |item| %>
           <li class='list'>
             <%= link_to item_path(item.id) do %>
             <div class='item-img-content'>
-              <%= image_tag item.images[0], class: "item-img" %>
+              <% if item.images.present? %>
+                <%= image_tag item.images[0], class: "item-img" %>
+              <% end %>
               <% if Order.exists?(item_id: item.id) %>
                 <div class='sold-out'>
                   <span>Sold Out!!</span>
@@ -155,7 +156,6 @@
             <% end %>
           </li>
         <% end %>
-      <% end %>
       
       <% if !@items.exists? %>
         <li class='list'>
