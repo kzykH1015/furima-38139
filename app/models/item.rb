@@ -8,4 +8,6 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :scheduled_delivery
   has_many_attached :images
+  has_many :item_tag_relation
+  has_many :tags, thorugh: :item_tag_relation
 end
