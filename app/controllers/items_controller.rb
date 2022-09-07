@@ -3,7 +3,9 @@ class ItemsController < ApplicationController
   before_action :item_finding, only: [:show, :edit, :update, :destroy]
 
   def index
-    @items = Item.all.order('created_at DESC')
+    @items_list = Item.all.order('created_at DESC')
+    @q = Item.ransack(params[:q])
+    @items = @q.result
   end
 
   def new
@@ -21,6 +23,8 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @q = Item.ransack(params[:q])
+    @items = @q.result
   end
 
   def edit
@@ -51,6 +55,7 @@ class ItemsController < ApplicationController
 
   def search_tag
     return nil if params[:keyword] == ''
+
     tag = Tag.where(['tag_name LIKE?', "%#{params[:keyword]}%"])
     render json: { keyword: tag }
   end
