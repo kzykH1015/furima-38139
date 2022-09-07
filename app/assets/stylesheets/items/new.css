@@ -250,3 +250,17 @@
   width: 100%;
   display: flex;
 }
+
+#search-result{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.child{
+  margin: 5px;
+  border: 1px solid #dedede;
+  background-color: #F4F4F4;
+  padding: 5px;
+  font-size: 12px;
+}
