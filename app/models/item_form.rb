@@ -13,7 +13,7 @@ class ItemForm
     validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
     validates :info
     validates :status_id, numericality: { other_than: 1, message: 'を選択してください' }
-    validates :category_id, numericality: { greater_than_or_equal_to:1 ,less_than_or_equal_to:10, message: "を選択してください" }
+    validates :category_id, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 10, message: 'を選択してください' }
     validates :shipping_fee_status_id, numericality: { other_than: 1, message: 'を選択してください' }
     validates :prefecture_id, numericality: { other_than: 0, message: 'を選択してください' }
     validates :scheduled_delivery_id, numericality: { other_than: 1, message: 'を選択してください' }
