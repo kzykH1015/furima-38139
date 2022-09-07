@@ -69,6 +69,12 @@
 .brand-list {
   text-decoration: none;
   color: #333333;
+  margin-right: 3vw;
+}
+
+.item-search-index {
+  text-decoration: none;
+  color: #333333;
 }
 
 .lists-right {

@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   resources :items do
     resources :orders, only: [:index, :create]
     collection do
-      get 'search'
+      get 'search_tag'
+      get 'search_item'
     end
   end
   resources :addresses, only: [:new, :create]
