@@ -20,7 +20,7 @@
           クリックしてファイルをアップロード
         </p>
         <div id="previews", class="previews" ></div>
-        <%= f.file_field :images, id:"item-image", name: 'item_form[images][]', data: {index: 0} %>
+        <%= f.file_field :images, class:"img-button", id:"item-image", name: 'item_form[images][]', data: {index: 0} %>
       </div>
     </div>
     <%# /商品画像 %>
@@ -49,11 +49,12 @@
           タグ
         </div>
         <%= f.text_area :tag_name, class:"items-tag", id:"item-tag", placeholder:"商品のタグ", maxlength:"20" %>
+        <div id="search-result"></div>
         <div class="weight-bold-text">
           カテゴリー
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+        <%= f.collection_select(:category_id, Category.all, :id, :name, {include_blank: "---"}, {class:"select-box", id:"item-category"}) %>
         <div class="weight-bold-text">
           商品の状態
           <span class="indispensable">必須</span>

@@ -11,7 +11,7 @@
 
 .search-bar-contents {
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
   align-items: center;
 }
 
@@ -28,13 +28,14 @@
 }
 
 .search-form>.input-box {
-  width: 100%;
+  width: 500px;
   height: 5vh;
   padding-left: 10px;
 }
 
 .search-button {
   width: 5vh;
+  height: 5vh;
   border: 0;
   cursor: pointer;
   background-color: #3ccace;
@@ -67,6 +68,12 @@
 }
 
 .brand-list {
+  text-decoration: none;
+  color: #333333;
+  margin-right: 3vw;
+}
+
+.item-search-index {
   text-decoration: none;
   color: #333333;
 }

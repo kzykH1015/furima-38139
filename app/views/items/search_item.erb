@@ -1,0 +1,46 @@
+<h3>検索ページ</h3>
+<h3><%= link_to 'トップページへ戻る', root_path%></h3>
+<div class='item-contents' id="detailed-search-result-wrapper">
+  <div class='search-flex'>
+    <%= search_form_for @q, url: search_item_items_path, html: {id: "detailed-search-form"} do |f| %>
+      <div class="search-field">
+        <%= f.label :name, '商品名' %>
+        <br>
+        <%= f.text_field :name, placeholder: '商品名', value: params[:q]&.dig(:name) %>
+      </div>
+      <div class="search-field">
+        <%= f.label :user_nickname_cont, '出品者名' %>
+        <br>
+        <%= f.text_field :user_nickname_cont, placeholder: '出品者名' %>
+      </div>
+      <div class="search-field">
+        <%= f.label :category_id_in, 'カテゴリ' %>
+        <br>
+        <%= f.collection_check_boxes(:category_id_in, Category.all, :id, :name, {include_blank: "---"}) %>
+      </div>
+      <div class="search-field">
+        <%= f.label :price_gteq, '価格'%>
+        <br>
+        <%= f.number_field :price_gteq %> 円以上
+        <br>
+        <%= f.number_field :price_lteq %> 円以下
+      </div>
+      <%= f.submit '検索' %>
+    <% end %>
+    <ul class='item-lists' id="detailed-search-result">
+      <% @items.each do |item| %>  
+        <% unless Order.exists?(item_id: item.id) %>
+          <li class='list'>
+            <div class="posted-content">
+              <% if item.images.present? %>
+                <%= image_tag item.images[0], class: "item-img" %><br>
+              <% end %>
+              <%= item.name%><br>
+              <%= link_to '詳細', item_path(item.id)%>
+            </div>
+          </li>
+        <% end %>      
+      <% end %>
+    </ul>
+  </div>
+</div>
