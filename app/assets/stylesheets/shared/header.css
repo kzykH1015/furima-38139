@@ -29,13 +29,13 @@
 
 .search-form>.input-box {
   width: 500px;
-  height: 7vh;
+  height: 5vh;
   padding-left: 10px;
 }
 
 .search-button {
-  width: 7vh;
-  height: 7vh;
+  width: 5vh;
+  height: 5vh;
   border: 0;
   cursor: pointer;
   background-color: #3ccace;
