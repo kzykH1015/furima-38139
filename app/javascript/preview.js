@@ -29,7 +29,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const newFileField = document.createElement('input');
     newFileField.setAttribute('type', 'file');
     newFileField.setAttribute('name', 'item_form[images][]');
-
+    newFileField.style.display = 'block';
+    
     const lastFileField = document.querySelector('input[type="file"][name="item_form[images][]"]:last-child');
     const nextDataIndex = Number(lastFileField.getAttribute('data-index')) +1;
     newFileField.setAttribute('data-index', nextDataIndex);
