@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const keyword = document.getElementById("item-tag").value;
       console.log(keyword);
       const XHR = new XMLHttpRequest();
-      XHR.open("GET", `/items/search/?keyword=${keyword}`, true);
+      XHR.open("GET", `/items/search_tag/?keyword=${keyword}`, true);
       XHR.responseType = "json";
       XHR.send();
       XHR.onload = () => { 
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const tagName = XHR.response.keyword;
           tagName.forEach((tag) => {
             const childElement = document.createElement("div");
-            childElement.setAttribute("class", "child");
+            childElement.setAttribute("class", "child-tag");
             childElement.setAttribute("id", tag.id);
             childElement.innerHTML = tag.tag_name;
             searchResult.appendChild(childElement);

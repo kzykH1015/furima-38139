@@ -129,6 +129,26 @@
 
 /* /商品の詳細など */
 
+/* アイテムタグ */
+.items-tag {
+  width: 300px;
+  height: 30px;
+  padding: 3px 5px;
+  background-color: cornsilk;
+}
+
+.child-tag {
+ font-weight: 400;
+ font-size: 15px;
+ color: black;
+ margin-right: 5px;
+ background-color: cornsilk;
+ padding: 3px;
+ border-radius: 5px;
+ border: 1px solid black;
+}
+/* /アイテムタグ */
+
 /* 販売価格 */
 .sell-price {
   display: flex;
