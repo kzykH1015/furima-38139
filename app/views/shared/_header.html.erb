@@ -1,7 +1,7 @@
 <%# CSS・・・assets/stylesheets/shared/header.css %>
 <header class='top-page-header'>
   <div class='search-bar-contents'>
-    <%= link_to image_tag("furima-logo-color.png", class:"furima-icon"), "/" %>
+    <%#= link_to image_tag("furima-logo-color.png", class:"furima-icon"), "/" %>
     
     <%= search_form_for @q, url: search_item_items_path, html: {id: "detailed-search-form"} do |f| %>
     <div class="search-form">
