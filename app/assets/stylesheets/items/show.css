@@ -140,6 +140,9 @@
 
 
 /* /商品の概要 */
+.comment {
+  margin-bottom: 3px;
+}
 
 .comment-box {
   width: 40vw;
@@ -164,6 +167,7 @@
 }
 
 .comment-btn {
+  margin: 0 auto;
   line-height: 48px;
   background-color: #3CCACE;
   border: 1px solid #3CCACE;
@@ -182,6 +186,10 @@
 
 .comment-flag-icon {
   margin: 10px 5px 0 0;
+}
+
+.comments-index {
+  font-size: 15px;
 }
 
 .links {

@@ -91,30 +91,26 @@
   <%# /商品の概要 %>
 
   <div class="comment-box">
+
+    <div id="comments-index">
+      <h4>＜コメント一覧＞</h4>
+      <% @item.comments.each do |comment|%>
+        <div class="comment">
+          <p class="user-info"><%= comment.user.nickname %>: <%= comment.text %></p>
+        </div>
+      <% end %>
+    </div>
+
     <% if user_signed_in? %>
-      <form>
-        <textarea class="comment-text"></textarea>
-        <p class="comment-warn">
-          相手のことを考え丁寧なコメントを心がけましょう。
-          <br>
-          不快な言葉遣いなどは利用制限や退会処分となることがあります。
-        </p>
-        <button type="submit" class="comment-btn">
+      <%= form_with model: [@item, @comment], url: item_comments_path(@item.id), method: :post, id:"comment-form", local: true do |f| %>
+        <%= f.text_area :text, class:"comment-text", placeholder:"相手のことを考え丁寧なコメントを心がけましょう。\n不快な言葉遣いなどは利用制限や退会処分となることがあります。"  %>
+        <div class="comment-btn">
+          <%= f.submit "コメントする",class:"commnet-submit" %>
           <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
-          <span>コメントする<span>
-        </button>
-      </form>
+        </div>
+      <% end %>
     <% end %>
 
-    <div class="comments-index">
-      <h4>＜コメント一覧＞</h4>
-        <% @item.comments.each do |comment|%>
-          <div class="comment">
-            <p><%= comment.user.nickname %>:</p>
-            <p><%= comment.text %></p>
-          </div>
-        <% end %>
-    </div>
   </div>
   <div class="links">
   <% if @item.id != @limit_high %>

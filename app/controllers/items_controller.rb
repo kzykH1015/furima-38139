@@ -26,6 +26,9 @@ class ItemsController < ApplicationController
     @q = Item.ransack(params[:q])
     @items = @q.result
 
+    @comments = @item.comments.includes(:user)
+    @comment = Comment.new
+
     all_item_id = Item.pluck(:id)
     now_item = all_item_id.index(@item.id)
     @next_item_id = all_item_id[now_item + 1]
