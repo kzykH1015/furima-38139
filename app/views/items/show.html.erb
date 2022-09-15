@@ -117,8 +117,14 @@
     </div>
   </div>
   <div class="links">
-    <%= link_to "⏪次の商品", item_path(@item.id + 1), method: :get, class: "change-item-btn" %>
-    <%= link_to "前の商品⏩", item_path(@item.id - 1), method: :get, class: "change-item-btn" %>
+  <% if @item.id != @limit_high %>
+    <%= link_to "⏪次の商品", item_path(@next_item_id), method: :get, class: "change-item-btn" %>
+    <% else %>
+    <div class="blank"></div>
+  <% end %>
+  <% if @item.id != @item_id_low  %>
+    <%= link_to "前の商品⏩", item_path(@before_item_id), method: :get, class: "change-item-btn" %>
+  <% end %>
   </div>
   <a href="#" class="another-item"><%= @item.category.name %>をもっと見る</a>
 </div>
