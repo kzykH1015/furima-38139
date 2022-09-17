@@ -25,6 +25,16 @@ class ItemsController < ApplicationController
   def show
     @q = Item.ransack(params[:q])
     @items = @q.result
+
+    @comments = @item.comments.includes(:user)
+    @comment = Comment.new
+
+    all_item_id = Item.pluck(:id)
+    now_item = all_item_id.index(@item.id)
+    @next_item_id = all_item_id[now_item + 1]
+    @before_item_id = all_item_id[now_item - 1]
+    @limit_high = all_item_id.max
+    @item_id_low = all_item_id[0]
   end
 
   def edit
@@ -47,7 +57,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    if @item.user.id == current_user.id
+    if @item.user_id == current_user.id
       @item.destroy
       redirect_to root_path
     end

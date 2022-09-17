@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root "items#index"
   resources :items do
     resources :orders, only: [:index, :create]
+    resources :comments, only: :create
     collection do
       get 'search_tag'
       get 'search_item'
