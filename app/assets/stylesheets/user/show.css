@@ -1,0 +1,44 @@
+.container {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  grid-template-rows: 40px 1fr;
+}
+.info-title {
+  font-size: 20px;
+  border: 1px solid black;
+  line-height: 40px;
+  text-align: center;
+  font-weight: 500;
+}
+.user-info {
+  text-align: center;
+  font-weight: 600;
+  padding-top: 10px;
+}
+.user-edit-btn {
+  font-weight: 300;
+  font-size: 13px;
+  background-color: aqua;
+  border-radius: 25px;
+  padding: 5px;
+  margin: 5px;
+  color: black;
+}
+
+
+.list-title {
+  font-size: 20px;
+  font-weight: 700;
+  background-color: rgb(142, 250, 242);
+  border: 1px solid black;
+  line-height: 40px;
+  padding-left: 10px;
+}
+.user-item-list {
+  display: flex;
+  margin-top: 5px;
+  flex-wrap: wrap;
+}
+.item-list {
+  margin:0 25px 5px 0;
+}
