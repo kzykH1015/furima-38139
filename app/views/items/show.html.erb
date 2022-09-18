@@ -104,7 +104,7 @@
     </div>
 
     <% if user_signed_in? %>
-      <%= form_with model: [@item, @comment], url: item_comments_path(@item.id), method: :post, id:"comment-form", local: true do |f| %>
+      <%= form_with model: [@item, @comment], url: item_comments_path(@item.id), method: :post, id:"comment-form" do |f| %>
         <%= f.text_area :text, class:"comment-text", placeholder:"相手のことを考え丁寧なコメントを心がけましょう。\n不快な言葉遣いなどは利用制限や退会処分となることがあります。"  %>
         <div class="comment-btn">
           <%= f.submit "コメントする",class:"comment-submit" %>
