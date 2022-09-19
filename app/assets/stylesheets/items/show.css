@@ -183,6 +183,7 @@
   border: 1px solid #3CCACE;
   color: #fff;
   font-size: 18px;
+  padding: 0 10px;
 }
 .comment-submit:hover {
   opacity: 60%;
@@ -195,9 +196,11 @@
 
 
 
-.comments-index {
+#comments-index h4 {
   font-size: 15px;
+  margin: 5px 0;
 }
+
 
 .links {
   display: flex;

@@ -17,8 +17,7 @@ consumer.subscriptions.create({
     // Called when there's incoming data on the websocket for this channel
     const html = `
       <div class="comment">
-        <p class="user-info">${data.user.nickname}： </p>
-        <p>${data.comment.text}</p>
+        <p class="user-info">${data.user.nickname}: ${data.comment.text}</p>
       </div>`
     const comments = document.getElementById("comments-index")
     comments.insertAdjacentHTML('beforeend', html)

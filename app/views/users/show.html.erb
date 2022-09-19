@@ -3,13 +3,19 @@
   <div class="info-title">ユーザー情報</div>
   <div class="list-title">出品リスト</div>
   <div class="user-info">
-  <%= @user.nickname %>
-  <% if @user.id == current_user.id %>
-    <div>
-      <%= link_to "ユーザー情報の編集", edit_user_path(current_user.id), method: :get, class: "user-edit-btn" %>
-    </div>
-  <% end %>
+    <% if @user.avatar? %>
+      <%= image_tag @user.avatar.url %>
+    <% else %>
+      <%= image_tag "noavatar.png", class:"noavatar-img" %>
+    <% end %>
+    <%= @user.nickname %>
+    <% if @user.id == current_user.id %>
+      <div>
+        <%= link_to "ユーザー情報の編集", edit_user_path(current_user.id), method: :get, class: "user-edit-btn" %>
+      </div>
+    <% end %>
   </div>
+
   <ul class='user-item-list'>
     <% @user_items.each do |item| %>
       <li class='item-list'>
@@ -39,5 +45,5 @@
         <% end %>
       </li>
     <% end %>
-  </div>
+  </ul>
 </div>

@@ -18,4 +18,7 @@ class User < ApplicationRecord
 
   has_one :card, dependent: :destroy
   has_many :comments
+
+  mount_uploader :avatar, AvatarUploader
+  
 end
