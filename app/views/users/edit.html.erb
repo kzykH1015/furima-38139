@@ -1,6 +1,6 @@
 <%= render "shared/second-header"%>
 
-<%= form_with model: @user, url: user_path(params[:id]), method: :patch, class: 'registration-main', local: true do |f| %>
+<%= form_with model: @user, url: user_path(params[:id]), method: :patch, class: 'registration-main', id: "avatar_image_preview", local: true do |f| %>
 <div class='form-wrap'>
   <div class='form-header'>
     <h1 class='form-header-text'>
@@ -9,9 +9,12 @@
   </div>
 
   <%= render 'shared/error_messages', model: f.object %>
-  <div class="field">
-    <%= f.label :avatar %>
-    <%= f.file_field :avatar %>
+  <div class="avatar-field">
+    <div id="previews", class="previews" ></div>
+    <div class="avatar-label">
+      <%= f.label :プロフィール画像 %>
+      <%= f.file_field :avatar, name: 'user-avatar', data: {index: 0} %>
+    </div>
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>
