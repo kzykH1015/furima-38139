@@ -1,0 +1,37 @@
+.avatar-field {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  display: grid;
+  grid-template-rows: 1fr 30px;
+}
+.avatar-label {
+  margin: 0 auto;
+  width: 340px;
+}
+#user_avatar{
+  width: 230px;
+}
+.avatar-preview {
+  margin: 0 auto;
+}
+.avatar-image {
+  height: 150px;
+  width: 150px;
+  object-fit: contain;
+}
+.profile-submit-btn {
+  font-size: 15px;
+  width: 170px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: rgb(125, 255, 251);
+  margin: 0 auto;
+}
+.profile-btn {
+  display: flex;
+  align-items: center;
+}
+.form-wrap {
+  margin: 0 auto;
+}

@@ -10,6 +10,7 @@ require("channels")
 require("../tax_profit.js")
 require("../card.js")
 require("../preview.js")
+require("../avatar_preview.js")
 require("../tag.js")
 
 // Uncomment to copy all static images under ../images to the output folder and reference

@@ -47,7 +47,9 @@
       <tbody>
         <tr>
           <th class="detail-item">出品者</th>
-          <td class="detail-value"><%= @item.user.nickname %></td>
+          <td class="detail-value">
+            <%= link_to @item.user.nickname, user_path(@item.user_id), class:"user-link" %>
+          </td>
         </tr>
         <tr>
           <th class="detail-item">タグ</th>
@@ -102,11 +104,10 @@
     </div>
 
     <% if user_signed_in? %>
-      <%= form_with model: [@item, @comment], url: item_comments_path(@item.id), method: :post, id:"comment-form", local: true do |f| %>
+      <%= form_with model: [@item, @comment], url: item_comments_path(@item.id), method: :post, id:"comment-form" do |f| %>
         <%= f.text_area :text, class:"comment-text", placeholder:"相手のことを考え丁寧なコメントを心がけましょう。\n不快な言葉遣いなどは利用制限や退会処分となることがあります。"  %>
         <div class="comment-btn">
-          <%= f.submit "コメントする",class:"commnet-submit" %>
-          <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
+          <%= f.submit "コメントする",class:"comment-submit" %>
         </div>
       <% end %>
     <% end %>

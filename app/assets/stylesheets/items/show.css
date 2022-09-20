@@ -98,6 +98,15 @@
   border: 1px solid #dedede;
   font-size: 14px;
 }
+.user-link {
+  font-weight: 700;
+  font-size: 17px;
+  color: blue;
+}
+
+.user-link:hover{
+  color: lightskyblue;
+}
 
 .option {
   display: flex;
@@ -166,17 +175,18 @@
   text-align: left;
 }
 
-.comment-btn {
-  margin: 0 auto;
-  line-height: 48px;
+.comment-submit {
+  margin: 0 auto 2vh;
+  border-radius: 100px;
   background-color: #3CCACE;
+  line-height: 48px;
   border: 1px solid #3CCACE;
   color: #fff;
-  width: 50%;
-  min-width: 150px;
   font-size: 18px;
-  border-radius: 100px;
-  margin-bottom: 2vh;
+  padding: 0 10px;
+}
+.comment-submit:hover {
+  opacity: 60%;
 }
 
 .comment-flag {
@@ -184,13 +194,13 @@
   justify-content: center;
 }
 
-.comment-flag-icon {
-  margin: 10px 5px 0 0;
+
+
+#comments-index h4 {
+  font-size: 15px;
+  margin: 5px 0;
 }
 
-.comments-index {
-  font-size: 15px;
-}
 
 .links {
   display: flex;

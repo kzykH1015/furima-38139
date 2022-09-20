@@ -1,0 +1,48 @@
+<%= render "shared/header" %>
+<div class="container">
+  <div class="info-title">ユーザー情報</div>
+  <div class="list-title">出品リスト</div>
+  <div class="user-info">
+    <% if @user.avatar.attached? %>
+      <%= image_tag @user.avatar , class:"avatar-img"%>
+    <% else %>
+      <%= image_tag "noavatar.png", class:"avatar-img" %>
+    <% end %>
+    <%= @user.nickname %>
+    <% if @user.id == current_user.id %>
+      <div>
+        <%= link_to "ユーザー情報の編集", edit_user_registration_path, method: :get, class: "user-edit-btn" %>
+      </div>
+    <% end %>
+  </div>
+  <ul class='user-item-list'>
+    <% @user_items.each do |item| %>
+      <li class='item-list'>
+        <%= link_to item_path(item.id) do %>
+        <div class='item-img-content'>
+          <% if item.images.present? %>
+            <%= image_tag item.images[0], class: "item-img" %>
+          <% end %>
+          <% if Order.exists?(item_id: item.id) %>
+            <div class='sold-out'>
+              <span>Sold Out!!</span>
+            </div>
+          <% end %>
+        </div>
+        <div class='item-info'>
+          <h3 class='item-name'>
+            <%= item.name %>
+          </h3>
+          <div class='item-price'>
+            <span><%= item.price %>円<br><%= item.shipping_fee_status.name %></span>
+            <div class='star-btn'>
+              <%= image_tag "star.png", class:"star-icon" %>
+              <span class='star-count'>0</span>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
