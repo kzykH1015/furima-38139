@@ -20,3 +20,18 @@
   width: 150px;
   object-fit: contain;
 }
+.profile-submit-btn {
+  font-size: 15px;
+  width: 170px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: rgb(125, 255, 251);
+  margin: 0 auto;
+}
+.profile-btn {
+  display: flex;
+  align-items: center;
+}
+.form-wrap {
+  margin: 0 auto;
+}
