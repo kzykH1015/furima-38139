@@ -9,10 +9,12 @@
       <%= image_tag "noavatar.png", class:"avatar-img" %>
     <% end %>
     <%= @user.nickname %>
-    <% if @user.id == current_user.id %>
-      <div>
-        <%= link_to "ユーザー情報の編集", edit_user_registration_path, method: :get, class: "user-edit-btn" %>
-      </div>
+    <% if user_signed_in? %>
+      <% if @user.id == current_user.id %>
+        <div>
+          <%= link_to "ユーザー情報の編集", edit_user_registration_path, method: :get, class: "user-edit-btn" %>
+        </div>
+      <% end %>
     <% end %>
   </div>
   <ul class='user-item-list'>
