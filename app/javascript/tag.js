@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if (tagNameInput) {
     tagNameInput.addEventListener("input", () => {
       const keyword = document.getElementById("item-tag").value;
-      console.log(keyword);
       const XHR = new XMLHttpRequest();
       XHR.open("GET", `/items/search_tag/?keyword=${keyword}`, true);
       XHR.responseType = "json";
