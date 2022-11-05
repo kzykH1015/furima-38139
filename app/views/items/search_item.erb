@@ -1,17 +1,17 @@
-<h3>検索ページ</h3>
-<h3><%= link_to 'トップページへ戻る', root_path%></h3>
+<%= render "shared/header" %>
+
 <div class='item-contents' id="detailed-search-result-wrapper">
   <div class='search-flex'>
     <%= search_form_for @q, url: search_item_items_path, html: {id: "detailed-search-form"} do |f| %>
       <div class="search-field">
         <%= f.label :name, '商品名' %>
         <br>
-        <%= f.text_field :name, placeholder: '商品名', value: params[:q]&.dig(:name) %>
+        <%= f.text_field :name, value: params[:q]&.dig(:name) %>
       </div>
       <div class="search-field">
         <%= f.label :user_nickname_cont, '出品者名' %>
         <br>
-        <%= f.text_field :user_nickname_cont, placeholder: '出品者名' %>
+        <%= f.text_field :user_nickname_cont %>
       </div>
       <div class="search-field">
         <%= f.label :category_id_in, 'カテゴリ' %>
